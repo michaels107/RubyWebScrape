@@ -1,4 +1,4 @@
-# Project 2: Web Scraping
+# Project 3: Web Scraping
 
 Your team must meet and choose four project manager's for this assignment. The project managers roles are:
 
