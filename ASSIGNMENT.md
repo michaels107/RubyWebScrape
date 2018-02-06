@@ -9,6 +9,8 @@ Your team must meet and choose four project manager's for this assignment. The p
 
 All team members must participate when deciding on which four different team members to assign to the roles. Though, the team member who plays the role of the overall project manager must be a team member who already has the most experience with the Ruby language.
 
+**_IMPORTANT: If you already had a particular manager role in a previous project then do not take on that manager role again in this assignment._**
+
 The responsibility of a manager is to oversee and help coordinate work accomplished by the group. A project manager must participate in the implementation of the project as well as perform managerial tasks.
 
 The role of a manager is **_NOT_** to tell anyone what to do or boss anyone around. Team members are **_NOT_** to dump work on a manager or assume that a manager will do their work for them, especially if you have procrastinated or have not studied the course material well. You as a team member are responsible for the work you take on and to report to **_ALL_** other team members on the progress and quality of your work.
@@ -18,7 +20,7 @@ The role of a manager is **_NOT_** to tell anyone what to do or boss anyone arou
 **BEFORE** starting the group portion of the project **_EACH_** team member must individually accomplish the following:
 
 * Thoroughly study the lecture notes on Git and Ruby
-* Accomplish any tutorials and related reading material indicated in the _[Resources](http://web.cse.ohio-state.edu/~shareef.1/3901.au17/resources/)_ section of the course website
+* Accomplish any tutorials and related reading material indicated in the _[Resources](http://web.cse.ohio-state.edu/~shareef.1/3901.sp18/resources/)_ section of the course website
 * Also, look over the reading material in the "Software Engineering" portion of the Resources section of the course website
 
 **_Important Note:_** A team member who is ill prepared before starting the group portion of this assignment because s/he has not sufficiently accomplished the individual portion of the assignment above cannot use this as an excuse for that team member to contribute less work on the project. Those team members who are ill prepared **_MUST_** put in more time and effort than other team members to prepare in order to be able to contribute **_EQUALLY_** with all other team members. In addition, those team members that are well prepared **_MUST_** work to help those that need to catch up with the material.
@@ -32,7 +34,7 @@ Your project will be graded not only on your group's solution but also on how we
 * Your team must meet face-to-face each week with all team members present on the agreed upon day and time your team members indicated to me in your Project #1 submission.
 * Your team should have additional face-to-face meetings. You should also determine additional channels of communication with team members since you will need to integrate your work with others.
 * Your team should plan and allocate time to integrate your work well before the deadline. I suggest that the team work with the overall project manager to set team deadlines early so that all team members know the status of everyone's work. Create a schedule that all team members can agree to adhere to and work to achieve towards.
-* Use your team's private repository on GitHub to help manage the development of your team's solution. We will provide this private repository for your team in our GitHub organization called cse3901-osu-2017au.
+* Use your team's private repository on GitHub to help manage the development of your team's solution. We will provide this private repository for your team in our GitHub organization called cse3901-osu-2018sp.
 
 ### Web Scraping
 
@@ -49,11 +51,13 @@ As another example, you could automate the process of figuring out how many cred
 
 You can use whatever source for data you like, provided it is an OSU source and is publicly visible. If you are doing many successive queries, you must space them out in time (eg using sleep between successive GETs) so as to not overload the server. You can do whatever scraping and processing you like, provided the result is interesting and doesn't violate any department or university policies.
 
-(A gem such as Mechanize can be very helpful for issuing HTTP requests, and a gem such as Nokogiri can help navigate the body of the response to find information of interest. Together, these two gems can greatly simplify your web scraping task. For instructions on how to make use of gems, see this [reference](http://web.cse.ohio-state.edu/~shareef.1/3901.au17/labs/gems.html).)
+(A gem such as Mechanize can be very helpful for issuing HTTP requests, and a gem such as Nokogiri can help navigate the body of the response to find information of interest. Together, these two gems can greatly simplify your web scraping task. For instructions on how to make use of gems, see this [reference](http://web.cse.ohio-state.edu/~shareef.1/3901.sp18/labs/gems.html).)
 
 ## Grading
 
 * 78% Implementation
+Use this link to view [guidelines](http://web.cse.ohio-state.edu/~shareef.1/3901.sp18/labs/GradingGuidelines.pdf)when your group is formulating its solution. Though, this is not
+the finalized grading template that the graders will use.
 * 10% Balanced work load
 Graders will determine the work load balance of your group work by using Git and Github repository analytics and documentation. In order to receive the full 10% of this portion of your grade, your team must show to the graders that work was equally balanced between the team members. Thus, your team must make a conscious effort to show Git and Github activity by all team members. In addition, your team must clearly document individual contributions in your documentation (see below) throughout the development of your solution. Activity that indicates only one or two members submitting work will result in a reduction in points.
 <p></p>
@@ -83,7 +87,7 @@ At a minimum, your team must provide the graders with a description of your test
 Carmen account, print out the form, and fill out with a pen. Complete this form individually only, i.e. not as a group.
 Submit this form in class on the next class meeting after the due date. Please staple, if needed! </p>
 <p><em>Group submission</em>: The graders will retrieve your work (<em>readme</em> plus your solution) from your team's Github private repository 
-provided for you under the course's organization cse3901-osu-2017au. All team member's work must eventually be merged 
+provided for you under the course's organization cse3901-osu-2018sp. All team member's work must eventually be merged 
 into a final committed version in Git. The <em>readme</em>  contains the names of each project manager and states what 
 each team member <em>specifically</em> contributed to the final submission. <em>For the latter, only report on 
 contributions that made it into to the final solution</em>. Clearly indicate which team members performed testing and 
