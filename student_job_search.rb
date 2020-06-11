@@ -6,13 +6,17 @@
 require 'mechanize'
 
 # Created 6/09/2020 by Duytan Tran
+# Edited 6/11/2020 by Sean Michaels : Created it so that it will search for keywords
 # Scrapes Student Job listings and returns them in an array of hashes
 def get_student_job_listings
   url = 'https://sfa.osu.edu/jobs/job-board'
   puts 'Scraping ' + url + '...'
+  print 'Enter keywords(if no keyword press enter): '
+  keyword = gets.chomp
   a = Mechanize.new { |agent| agent.user_agent_alias = 'Windows Firefox' }
   search_page = a.get(url)
   search_form = search_page.forms.last
+  search_form.search = keyword
   unparsed_job_list = a.submit(search_form, search_form.buttons.first)
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
   jobs = []
