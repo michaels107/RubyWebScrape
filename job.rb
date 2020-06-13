@@ -16,7 +16,17 @@ def get_job_listings
   unparsed_job_list = a.submit(search_form, search_form.buttons.first)
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
   jobs = []
-  parsed_job_list.css('div.job-item.job-item-posting').each do |job|
+  page=1
+  total=parsed_job_list.css('span.smaller.muted').text.split("(")[1].split(")")[0].to_i
+  job_list=parsed_job_list.css('div.job-item.job-item-posting')
+  per_page=job_list.count
+  last_page=(total.to_f/per_page.to_f).round
+  while page<=last_page
+    pagination_url="https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"
+    pagination_search_page = a.get(pagination_url)
+    pagination_parsed_job_list=Nokogiri::HTML(pagination_search_page.body)
+    pagination_job_list=pagination_parsed_job_list.css('div.job-item.job-item-posting')
+    pagination_job_list.each do |job|
     info = { title: job.css('h3').text,
              work_title: job.css(' div.col-md-8.col-xs-12 div.col-md-2.col-xs-12.job-title.job-title-text-wrap.col-md-push-0')[0].text ,
              dept: job.css('div.col-md-8.col-xs-12 div.col-md-2.col-xs-12.job-title.job-title-text-wrap.col-md-push-0')[1].text,
@@ -27,6 +37,8 @@ def get_job_listings
              details: 'https://www.jobsatosu.com' + job.css('a')[0]['href']
             }
     jobs << info
+  end
+    page +=1
   end
   jobs
 end
