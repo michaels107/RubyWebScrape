@@ -103,3 +103,19 @@ def print_student_job_listings jobs
     puts 'Additional information: ' + info[:link] + "\n\n"
   end
 end
+
+# Created by 6/15/2020 by Sean Michaels
+# Method to print to a file you created
+def print_file jobs, file_name
+  File.open(file_name, 'w+') {|f| jobs.each_with_index { |job, i|
+    f.write"Job listing #{i + 1}\n"
+    f.write"Title: #{job[:title]}\n"
+    f.write"Employer: #{job[:employer]}\n"
+    f.write"Pay: #{job[:pay]}\n"
+    f.write"Job Duration: #{job[:duration]}\n"
+    f.write"Hours: #{job[:hours]}\n"
+    f.write"Description #{job[:desc]}\n"
+    f.write"Additional information #{job[:link]}\n\n"
+   }
+  }
+end

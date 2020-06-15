@@ -126,5 +126,19 @@ def print_job_listings(jobs)
   end
 end
 
-jobs = get_job_listings
-print_job_listings(jobs)
+# Created by 6/15/2020 by Sean Michaels
+# Method to print to a file you created
+def print_file jobs, file_name
+  File.open(file_name, 'w+') {|f| jobs.each_with_index { |job, i|
+    f.write"Job listing #{i + 1}\n"
+    f.write"Title: #{job[:title]}\n"
+    f.write"Work Title: #{job[:work_title]}\n"
+    f.write"Department: #{job[:dept]}\n"
+    f.write"Application Deadline: #{job[:app_deadline]}\n"
+    f.write"Opening number: #{job[:open_number]}\n"
+    f.write"Salary: #{job[:target_salary]}\n"
+    f.write"Description: #{job[:desc]}\n"
+    f.write"View Details: #{job[:details]}\n\n"
+  }
+  }
+end

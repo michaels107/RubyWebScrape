@@ -10,6 +10,7 @@ def scraping(jobs)
   while check
     puts 'Enter \'1\' if you want to print out jobs.'
     puts 'Enter \'2\' if you want to compare jobs.'
+    puts 'Enter \'3\' if you want to print jobs to a file.'
     puts 'Enter \'q\' if you want to quit.'
     print 'Enter choice: '
     choice = gets.chomp
@@ -19,6 +20,8 @@ def scraping(jobs)
       jobs.print_listings
     elsif choice.eql? '2'
       jobs.compare_listings
+    elsif
+    jobs.print_to_file
     end
   end
 end
@@ -38,5 +41,6 @@ if input == '1'
 elsif input == '2'
   scraping(CombinedSearches.new true)
 end
+
 puts 'Quitting...'
 
