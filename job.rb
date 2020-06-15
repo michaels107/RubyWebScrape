@@ -39,12 +39,12 @@ end
 # Returns the search form with/without search criteria filled out.
 def osu_form(form)
   data = []
-    # get keywords
-    data.push(keywords)
-    # gets range of posting
-    data.push(posted_within)
-    # gets location
-    data.push(location)
+  # get keywords
+  data.push(keywords)
+  # gets range of posting
+  data.push(posted_within)
+  # gets location
+  data.push(location)
   data
 end
 
