@@ -1,0 +1,171 @@
+Created 6/15/2020 by Duytan Tran
+Systems testing for the OSU/Student job scraping program in scrape.rb
+
+###TESTING_STUDENT_JOB_SCRAPE / TESTING_STUDENT_JOB_PRINT_FUNCTION###
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #1: 	Unrealistic filters are entered
+Description: 	After selecting student job as the desired scrape, enter unrealistic filters, use print function
+Expected Out:	User is informed that the number of available jobs is 0
+Actual Out: 	"Available student jobs: 0" is displayed
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #2: 	Single listing specific filters are entered
+Description: 	After selecting student job as the desired scrape, enter very specific filter, use print function
+Expected Out:	User is informed that the number of available jobs is 1 and is shown that job's information
+Actual Out: 	"Available student jobs: 1" is displayed and information concerning a barista job is displayed
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #3: 	Vague filter is entered
+Description: 	After selecting student job as the desired scrape, enter vague key word, use print function
+Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown that jobs with a commonality
+Actual Out: 	"Available student jobs: 6" is displayed and information concerning a jobs with keyword cook are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #4: 	No filter is entered
+Description: 	After selecting student job as the desired scrape, enter no filters, use print function
+Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown all available jobs on the student
+		job board
+Actual Out: 	"Available student jobs: 26" is displayed and information for each listing is displayed
+
+###TESTING_COMPARE_LISTINGS###
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #1: 	Student job listings of size 0 are provided and compare_listings is called
+Description: 	Student job listings is selected and unrealistic filters are entered, resulting in 0 listings. comparison of listings option is chosen.
+Expected Out:	"Cannot perform comparisons on job listing counts less than 2!" is displayed, user is then brought back to choosing different functions.
+Actual Out: 	User is informed that there is 0 available jobs and "Cannot perform comparisons on job listing counts less than 2!" is displayed, 
+		user is then brought back to choosing different functions.
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #2: 	Student job listings of size 1 are provided and compare_listings is called
+Description: 	Student job listings is selected and overly specific filters are entered, resulting in 1 listing. comparison of listings option is chosen.
+Expected Out:	"Cannot perform comparisons on job listing counts less than 2!" is displayed, user is then brought back to choosing different functions.
+Actual Out: 	User is informed that there is 1 available job, displayed the 1 job, and then informed that 
+		"Cannot perform comparisons on job listing counts less than 2!", user is then brought back to choosing different functions.
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #3: 	Student job listings of arbitrary size are provided and compare_listings is called
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen.
+Expected Out:	User is given the different jobs to choose from and then is prompted to select 2 of them, given the option to exit
+Actual Out: 	User is shown the different jobs available and is prompted with 
+		"Please select two listings by number for which you wish to compare! (non-answer to abort)" followed by "Selection 1: ",
+		waits for user input
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #4: 	compare_listings is called successfully on student job listings, user inputs two values out of range
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, 2 selections are outside of range
+Expected Out:	user is informed that the method was aborted (since non-answers are provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #5: 	compare_listings is called successfully on student job listings, user inputs one value out of range, one within range
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, 1 selection is outside of range, the
+		other is inside range
+Expected Out:	user is informed that the method was aborted (since a non-answer was provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #6: 	compare_listings is called successfully on student job listings, user presses enter twice for selections
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, enter is pressed for both selections
+Expected Out:	user is informed that the method was aborted (since a non-answer was provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #7: 	compare_listings is called successfully on student job listings, user picks first and last listing
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, 1 and last listing are selected
+Expected Out:	user is shown a side by side comparison of the two selected jobs
+Actual Out: 	user is shown a side by side comparison of the two selected jobs
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #8: 	compare_listings is called successfully on student job listings, user picks same listing twice
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, same listing is selected twice
+Expected Out:	user is shown a side by side comparison of the same job
+Actual Out: 	user is shown a side by side comparison of the same job
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #9: 	compare_listings is called successfully on student job listings, user picks any 2 listings arbitrarily
+Description: 	Student job listings is selected and no filters are entered. comparison of listings option is chosen, different listings are selected
+Expected Out:	user is shown a side by side comparison of the two listings
+Actual Out: 	user is shown a side by side comparison of the two listings
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #10: 	OSU job listings of size 0 are provided and compare_listings is called
+Description: 	OSU job listings is selected and unrealistic filters are entered, resulting in 0 listings. comparison of listings option is chosen.
+Expected Out:	"Cannot perform comparisons on job listing counts less than 2!" is displayed, user is then brought back to choosing different functions.
+Actual Out: 	User is informed that there is 0 available jobs and "Cannot perform comparisons on job listing counts less than 2!" is displayed, 
+		user is then brought back to choosing different functions.
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #11: 	OSU job listings of size 1 are provided and compare_listings is called
+Description: 	OSU job listings is selected and overly specific filters are entered, resulting in 1 listing. comparison of listings option is chosen.
+Expected Out:	"Cannot perform comparisons on job listing counts less than 2!" is displayed, user is then brought back to choosing different functions.
+Actual Out: 	User is informed that there is 1 available job, displayed the 1 job, and then informed that 
+		"Cannot perform comparisons on job listing counts less than 2!", user is then brought back to choosing different functions.
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #12: 	OSU job listings of arbitrary size are provided and compare_listings is called
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen.
+Expected Out:	User is given the different jobs to choose from and then is prompted to select 2 of them, given the option to exit
+Actual Out: 	User is shown the different jobs available and is prompted with 
+		"Please select two listings by number for which you wish to compare! (non-answer to abort)" followed by "Selection 1: ",
+		waits for user input
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #13: 	compare_listings is called successfully on OSU job listings, user inputs two values out of range
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, 2 selections are outside of range
+Expected Out:	user is informed that the method was aborted (since non-answers are provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #14: 	compare_listings is called successfully on OSU job listings, user inputs one value out of range, one within range
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, 1 selection is outside of range, the
+		other is inside range
+Expected Out:	user is informed that the method was aborted (since a non-answer was provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #15: 	compare_listings is called successfully on OSU job listings, user presses enter twice for selections
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, enter is pressed for both selections
+Expected Out:	user is informed that the method was aborted (since a non-answer was provided) and is brought back to the choosing of different functions
+Actual Out: 	"Aborting list comparison!" is displayed and options of different functions are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #16: 	compare_listings is called successfully on OSU job listings, user picks first and last listing
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, 1 and last listing are selected
+Expected Out:	user is shown a side by side comparison of the two selected jobs
+Actual Out: 	user is shown a side by side comparison of the two selected jobs
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #17: 	compare_listings is called successfully on OSU job listings, user picks same listing twice
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, same listing is selected twice
+Expected Out:	user is shown a side by side comparison of the same job
+Actual Out: 	user is shown a side by side comparison of the same job
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #18: 	compare_listings is called successfully on OSU job listings, user picks any 2 listings arbitrarily
+Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, different listings are selected
+Expected Out:	user is shown a side by side comparison of the two listings
+Actual Out: 	user is shown a side by side comparison of the two listings
