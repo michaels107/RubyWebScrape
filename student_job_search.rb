@@ -11,29 +11,18 @@ require 'mechanize'
 
 # Created 6/12/2020 by Sean Michaels
 # Edited 6/13/2020 by Duytan Tran: Improved readability of I/O
+# Edited 6/15/2020 by Sean Michaels: Refactored the if statements
 # Method that gets what the user whats to filter their results by
 def filter
   print 'Enter keywords(if no keyword press enter): '
   data = []
   data.push gets.chomp
   print 'Would you like to filter by Off Campus[Y/N]: '
-  if gets.chomp.eql? 'Y'
-    data.push true
-  else
-    data.push false
-  end
+  data.push gets.chomp.eql? 'Y'
   print 'Would you like to filter by On Campus[Y/N]: '
-  if gets.chomp.eql? 'Y'
-    data.push true
-  else
-    data.push false
-  end
+  data.push gets.chomp.eql? 'Y'
   print 'Would you like to filter by Work from Home[Y/N]: '
-  if gets.chomp.eql? 'Y'
-    data.push true
-  else
-    data.push false
-  end
+  data.push gets.chomp.eql? 'Y'
   data
 end
 
@@ -64,6 +53,7 @@ end
 # Edited 6/11/2020 by Sean Michaels: Created it so that it will search for keywords
 # Edited 6/12/2020 by Sean Michaels: Added method to ask user for data for their search
 # Edited 6/13/2020 by Duytan Tran: Added additional scraping for pay, duration, and hours
+# Edited 6/15/2020 by Sean Michaels: Refactored the checkboxes part with an shift
 # Scrapes Student Job listings and returns them in an array of hashes
 def get_student_job_listings
   # Processing user filter choices
@@ -75,8 +65,9 @@ def get_student_job_listings
   data = filter
   i = 1
   search_form.search = data[0]
+  data.shift # Unshifitng to get rid of keywords index
   search_form.checkboxes.map do |box|
-    box.click if data[i].eql? true
+    box.click if data[i]
     i += 1
   end
   unparsed_job_list = a.submit(search_form, search_form.buttons.first)
