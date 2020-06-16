@@ -15,4 +15,4 @@
 2. Move into the Project-3-Quaranteam directory via terminal command: cd your_file_path
 3. Install releveant gems used in our program via terminal command: bundle install
 4. Fulfill the bookkeeping required by rbenv via terminal command: rbenv rehash
-5. Run the program using the right gems via: bundle exec ruby scrape.rb
+5. Run the program using the right gems via terminal command: bundle exec ruby scrape.rb
