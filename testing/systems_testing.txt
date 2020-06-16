@@ -169,3 +169,42 @@ Test #18: 	compare_listings is called successfully on OSU job listings, user pic
 Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, different listings are selected
 Expected Out:	user is shown a side by side comparison of the two listings
 Actual Out: 	user is shown a side by side comparison of the two listings
+
+
+###TESTING_OSU_JOB_BOARD_SCRAPE / TESTING_OSU_JOB_BOARD_PRINT_FUNCTION###
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #19 - No filters
+Description: Submit search with no filters
+Expected Out: "Available jobs: [# listed on website w/o criteria - changes daily]" + # of listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #20 - Bad filters used
+Description: Filters expected to return no jobs used
+Expected Out: "Available jobs: 0"
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #21 - One keyword
+Description: The keyword "engineer" is entered as a filter
+Expected Out: "Available jobs: 6" + listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #22 - filter by Columbus only
+Description: Answer 'Y' to narrowing results to Columbus only
+Expected Out: "Available jobs: 40" + listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #23 - filter by postings within the last week
+Description: Enter 2 to see posts from the last week
+Expected Out: "Available jobs: [# matches the osu job board]"
+Actual Out:
+
+###TESTING_ADD_TO_FAVORITES / TESTING_PRINT_FAVORITES###

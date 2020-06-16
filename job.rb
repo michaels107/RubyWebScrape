@@ -75,7 +75,9 @@ def get_job_listings
   end
   # end section by Caroline Wheeler
   puts search_form.inspect
-  unparsed_job_list = a.submit(search_form, search_form.buttons.first)
+  unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'search-extra'))
+  # end section by Caroline Wheeler
+
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
   jobs = []
   page = 1
@@ -91,14 +93,14 @@ def get_job_listings
     pagination_job_list.css('div.job-item.job-item-posting').each do |job|
       job_layering = 'div.col-md-8.col-xs-12 div.col-md-2.col-xs-12.job-title.job-title-text-wrap.col-md-push-0'
       info = {
-          title: job.css('h3').text.strip!,
-          work_title: job.css(job_layering)[0].text.strip!,
-          dept: job.css(job_layering)[1].text.strip!,
-          app_deadline: job.css(job_layering)[2].text.strip!,
-          open_number: job.css(job_layering)[3].text.strip!,
-          target_salary: job.css(job_layering)[4].text.strip!,
-          desc: job.css('span.job-description').text.strip!,
-          details: 'https://www.jobsatosu.com' + job.css('a')[0]['href']
+        title: job.css('h3').text.strip!,
+        work_title: job.css(job_layering)[0].text.strip!,
+        dept: job.css(job_layering)[1].text.strip!,
+        app_deadline: job.css(job_layering)[2].text.strip!,
+        open_number: job.css(job_layering)[3].text.strip!,
+        target_salary: job.css(job_layering)[4].text.strip!,
+        desc: job.css('span.job-description').text.strip!,
+        details: 'https://www.jobsatosu.com' + job.css('a')[0]['href']
       }
       jobs << info
     end
@@ -129,7 +131,8 @@ end
 # Created by 6/15/2020 by Sean Michaels
 # Method to print to a file you created
 def print_file jobs, file_name
-  File.open(file_name, 'w+') {|f| jobs.each_with_index { |job, i|
+  File.open(file_name, 'w+') do |f|
+    jobs.each_with_index do |job, i|
     f.write"Job listing #{i + 1}\n"
     f.write"Title: #{job[:title]}\n"
     f.write"Work Title: #{job[:work_title]}\n"
@@ -139,6 +142,11 @@ def print_file jobs, file_name
     f.write"Salary: #{job[:target_salary]}\n"
     f.write"Description: #{job[:desc]}\n"
     f.write"View Details: #{job[:details]}\n\n"
-  }
-  }
+    end
+  end
 end
+
+jobs = get_job_listings
+print_job_listings(jobs)
+
+
