@@ -3,6 +3,7 @@
 # Created 6/14/2020 by Duytan Tran
 require_relative 'student_job_search'
 require_relative 'job'
+require 'mail'
 # Store the results of two OSU job scrapings under a single umbrella where various functions may be performed
 class CombinedSearches
   # Created 6/14/2020 by Duytan Tran
@@ -24,16 +25,15 @@ class CombinedSearches
     else
       print_student_job_listings @job_listings
     end
+
   end
 
   # Created 6/15/2020 by Sean Michaels
   # Edited 6/16/2020 by Sean Michaels : Removed the check of scrape as the method is overloaded
+  # Edited 6/16/2020 by Reema Gupta : Shifted the input statements to scrape.rb
   # Prints the job listings with the appropriate implementation to a file
-  def print_to_file
-    print 'Enter file name with .txt extension to create your file: '
-    file_name = gets.chomp
+  def print_to_file  file_name
     print_file @job_listings, file_name
-
   end
 
   # Created 6/14/2020 by Duytan Tran
@@ -86,5 +86,34 @@ class CombinedSearches
       print format('%-10<label>s', label: 'Hours')
       puts format('%70<result>s' + "\t|\t" + listing_two[:hours], result: listing_one[:hours])
     end
+  end
+
+# Created 06/16/2020 by Reema Gupta
+# Method to send an email with an attached text file
+  def email(receiver_id, file_name)
+    smtp_server = "smtp.gmail.com"
+    email_id = "quaranteamcse3901@gmail.com"
+    password = "Quaranteam3901"
+    domain = "gmail.com"
+    port = 587
+
+    mail = Mail.new do
+      from email_id
+      to receiver_id
+      subject 'Job Search Listings'
+      body "Please find the attached text file"
+      add_file "#{File.realpath(file_name)}"
+
+    end
+    options = {:address => smtp_server,
+               :port => port,
+               :domain => domain,
+               :user_name => email_id,
+               :password => password,
+               :authentication => 'plain',
+               :enable_starttls_auto => true}
+    mail.delivery_method :smtp, options
+    mail.deliver
+
   end
 end

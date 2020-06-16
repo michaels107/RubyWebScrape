@@ -53,9 +53,10 @@ end
 # Edited  6/13/2020 by Reema Gupta: Changed forms.last to forms.fast and edited css parts
 # Edited  6/13/2020 by Duytran Tran: Added.strip! to info values, shortened layering into a variable
 # Edited  6/13/2020 by Reema Gupta: Included code so as to run the loop for all pages on the website
-# Edited 6/13/2020 by Duytan Tran: Removed calls to get_job_listings and print_job_listings
-# Edited 6/15/2020 by Caroline Wheeler: Added call to osu_form and code necessary to implement search criteria
-# Edited 6/15/2020 by Caroline Wheeler: Added single line comments
+# Edited  6/13/2020 by Duytan Tran: Removed calls to get_job_listings and print_job_listings
+# Edited  6/15/2020 by Caroline Wheeler: Added call to osu_form and code necessary to implement search criteria
+# Edited  6/15/2020 by Caroline Wheeler: Added single line comments
+# Edited  6/16/2020 by Reema Gupta: changed the pagination_url so as to include search criteria
 # Scrapes the  job board search at https://www.jobsatosu.com/postings/search
 #  for available listings, outputting them to the console in a quick summarized manner with
 # links to each specific listing for view details.
@@ -64,8 +65,8 @@ def get_job_listings
   puts 'Scrap ' + url + '...'
   a = Mechanize.new { |agent| agent.user_agent_alias = 'Windows Firefox' }
   search_page = a.get(url)
-  # this section authored by Caroline Wheeler
   search_form = search_page.forms.first
+  # this section authored by Caroline Wheeler
   puts 'Would you like to enter search criteria? [Y/N]'
   if gets.chomp.eql?('Y')
     data = osu_form(search_form) # call to osu_form will return an array containing search criteria
@@ -73,11 +74,9 @@ def get_job_listings
     search_form.query_v0_posted_at_date = data[1] #enters prefered date of posting
     search_form.field_with(:name => '591[]').option(:value => data[2]).click # enters location preference
   end
-  # end section by Caroline Wheeler
   puts search_form.inspect
   unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'search-extra'))
   # end section by Caroline Wheeler
-
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
   jobs = []
   page = 1
@@ -86,7 +85,7 @@ def get_job_listings
   total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i
   last_page = (total.to_f / per_page.to_f).round
   while page <= last_page
-    pagination_url = "https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"
+    pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&577=&578=&579"
     pagination_search_page = a.get(pagination_url)
     pagination_parsed_job_list = Nokogiri::HTML(pagination_search_page.body)
     pagination_job_list = pagination_parsed_job_list.css('div.job-item.job-item-posting')
@@ -146,7 +145,6 @@ def print_file jobs, file_name
   end
 end
 
-jobs = get_job_listings
-print_job_listings(jobs)
+
 
 

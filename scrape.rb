@@ -4,6 +4,7 @@
 require_relative 'combined_searches'
 
 # Created 6/15/2020 by Sean Michaels
+# Edited 6/16/2020  by Reema Gupta: Included the code to send the job text file to an email
 # Method to keep prompting the user to either print or compare jobs in their chosen scrape.
 def scraping(jobs)
   check = true
@@ -20,8 +21,17 @@ def scraping(jobs)
       jobs.print_listings
     elsif choice.eql? '2'
       jobs.compare_listings
-    elsif
-    jobs.print_to_file
+    elsif choice.eql?'3'
+      print "Enter file name with .txt extension to create your file: "
+      file_name = gets.chomp
+      jobs.print_to_file file_name
+      print "Do you want the file to be emailed to you? (Y/N) : "
+      s=gets.chomp
+      if s.eql? 'Y'
+        print "Enter a valid email id where you want the text file to be emailed : "
+        id=gets.chomp
+        jobs.email id,file_name
+      end
     end
   end
 end
