@@ -169,3 +169,73 @@ Test #18: 	compare_listings is called successfully on OSU job listings, user pic
 Description: 	OSU job listings is selected and no filters are entered. comparison of listings option is chosen, different listings are selected
 Expected Out:	user is shown a side by side comparison of the two listings
 Actual Out: 	user is shown a side by side comparison of the two listings
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #19: Initial start of the scrape
+Description:    Asks the user for which scrape they want, user chooses Student Job board scrape.
+Expected Out:	Student job board scrape is selected
+Actual Out: 	Student job board scape is selected
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #20: Initial start of the scrape
+Description:    Asks the user for which scrape they want, user chooses OSU Employment job board scrape.
+Expected Out:	OSU Employment job board scrape is selected
+Actual Out: 	OSU Employment job board scrape is selected
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #21: Initial start of the scrape
+Description:    Asks the user for which scrape they want, user chooses no scrape.
+Expected Out:	Program quits
+Actual Out: 	Program quits
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #22: scraping method in scrape.rb
+Description:    Prompts user to enter a choice for what they want for the scrape, user chooses '1'
+Expected Out:	Prints out every job on the page to the console
+Actual Out: 	Prints out every job on the page to the console
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #23: scraping method in scrape.rb
+Description:    Prompts user to enter a choice for what they want for the scrape, user chooses '2'
+Expected Out:	prompts the user to select two jobs to compare
+Actual Out: 	prompts the user to select two jobs to compare
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #24: scraping method in scrape.rb
+Description:    Prompts user to enter a choice for what they want for the scrape, user chooses '3'
+Expected Out:	executed printing jobs to a file from the web page
+Actual Out: 	executed printing jobs to a file from the web page
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #25: scraping method in scrape.rb
+Description:    Prompts user to enter a choice for what they want for the scrape, user chooses 'q'
+Expected Out:	Ends scraping method and ends program
+Actual Out: 	Ends scraping method and ends program
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #26: print_to_file class method
+Description:    Prompts user for a name for a file so that it can create a file to put jobs on
+Expected Out:	Gets name for file and calls the print_file function
+Actual Out: 	Gets name for file and calls the print_file function
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #27: print_file method in the student_job_search.rb
+Description:    Creates a file and writes jobs to it using the info from the student job board.
+Expected Out:	Creates a file using the file_name and the jobs it wanted to print to a file
+Actual Out: 	Creates a file using the file_name and the jobs it wanted to print to a file
+
+Author: Sean Michaels
+Date: 6/16/2020
+Test #28: print_file method in the job.rb
+Description:    Creates a file and writes jobs to it using the info from the student job board.
+Expected Out:	Creates a file using the file_name and the jobs it wanted to print to a file
+Actual Out: 	Creates a file using the file_name and the jobs it wanted to print to a file

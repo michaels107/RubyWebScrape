@@ -27,15 +27,13 @@ class CombinedSearches
   end
 
   # Created 6/15/2020 by Sean Michaels
+  # Edited 6/16/2020 by Sean Michaels : Removed the check of scrape as the method is overloaded
   # Prints the job listings with the appropriate implementation to a file
   def print_to_file
     print 'Enter file name with .txt extension to create your file: '
     file_name = gets.chomp
-    if @osu_employment
-      print_file @job_listings, file_name
-    else
-      print_file @job_listings, file_name
-    end
+    print_file @job_listings, file_name
+
   end
 
   # Created 6/14/2020 by Duytan Tran
