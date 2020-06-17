@@ -121,20 +121,26 @@ class CombinedSearches
   # Created 6/17/2020 by Caroline Wheeler
   # Allows user to select favorite job listings and write them to favorites file
   def pick_favorites
-    fav = []
+    fav_index = []
+    fav_jobs = []
     puts 'You have the option to favorite job listings.'
     puts 'They will be saved and stored separately.'
     print_listings
     puts
+    # Get users favorites and store index in array
     puts 'Enter the numbers of the job listings you would like to favorite (press enter after each num): '
     loop do
-        input = gets.chomp
-        break if input.empty?
+      input = gets.chomp
+      break if input.empty?
 
-        fav << input
-      end
-    return if fav.empty?
-
-    print_to_file('favorites')
+      fav_index << input.to_i - 1
     end
+    # exit if user does not select any favorites
+    return if fav_index.empty?
+
+    # for each favorite selected add job listing info to arr and write to file
+    fav_index.each { |i| fav_jobs << @job_listings[i] }
+    print_file(fav_jobs, 'favorites')
+  end
+
 end
