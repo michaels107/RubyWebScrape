@@ -282,3 +282,31 @@ Expected Out:	User is informed that the number of available jobs is any arbitrar
 Actual Out: 	"Available student jobs: 26" is displayed and information for each listing is displayed
 
 ###TESTING_ADD_TO_FAVORITES / TESTING_PRINT_FAVORITES###
+
+Author: Caroline Wheeler
+Date: 6/17/2020
+Test #38 - nothing in favorites
+Description: Run the scrape for student job board, run pick favorites and select nothing & print favorites
+Expected Out: "************************* FAVORITES *************************"
+Actual Out: "************************* FAVORITES *************************"
+
+Author: Caroline Wheeler
+Date: 6/17/2020
+Test #39 - Add first job listing to favorites
+Description: Add the first job listing to favorites
+Expected Out: Favorites header and the first job listing
+Actual Out: Favorites header and the first job listing
+
+Author: Caroline Wheeler
+Date: 6/17/2020
+Test #39 - Add last job listing to favorites
+Description: W/O clearing favorites add the last job listing and print favorites
+Expected Out: Favorites header and the first job listing and the last job listing appended
+Actual Out: Favorites header and the first job listing and the last job listing appended
+
+Author: Caroline Wheeler
+Date: 6/17/2020
+Test #40 - select multiple favorites at once
+Description: Add the first and last job listing to favorites at the same time
+Expected Out: Favorites header and the first job listing and the last job listing appended
+Actual Out: Favorites header and the first job listing and the last job listing appended
