@@ -64,16 +64,16 @@ end
 # Edited  6/17/2020 by Sean Michaels: Debugged and fixed the url so it correctly filters
 # Edited  6/17/2020 by Reema Gupta: Added the condition to exit program when there are 0 listings
 =begin
- Scrapes the  job board search at https://www.jobsatosu.com/postings/search
+ Scrapes all pages of  the  job board search at https://www.jobsatosu.com/postings/search
  for available listings, outputting them to the console in a quick summarized manner with
  links to each specific listing for view details.
 =end
 def get_job_listings
   url = 'https://www.jobsatosu.com/postings/search'
   puts 'Scrap ' + url + '...'
-  a = Mechanize.new { |agent| agent.user_agent_alias = 'Windows Firefox' }
-  search_page = a.get(url)
-  search_form = search_page.forms.first
+  a = Mechanize.new { |agent| agent.user_agent_alias = 'Windows Firefox' }# creates an object to send request
+  search_page = a.get(url) # issue a request
+  search_form = search_page.forms.first # find form
   # this section authored by Caroline Wheeler
   puts 'Would you like to enter search criteria? [Y/N]'
   criteria=gets.chomp
@@ -83,35 +83,41 @@ def get_job_listings
     search_form.query_v0_posted_at_date = data[1] # enters preferred date of posting
     search_form.field_with(:name => '591[]').option(:value => data[2]).click # enters location preference
   end
-  unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'Search'))
+  unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'Search'))# submit form when search button is clicked
   # end section by Caroline Wheeler
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
+  # Creating an array of hash listings with individualized job info
   jobs = []
   page = 1
-  job_list = parsed_job_list.css('div.job-item.job-item-posting')
+  job_list = parsed_job_list.css('div.job-item.job-item-posting')# css class name for each listing
   per_page = job_list.count
-  total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i
-  if(total==0)
+  total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i# used to get the total number of listing
+  if(total==0)# ends program when there are 0 listing
     puts "0 listings"
     sleep 3
     puts "Quitting"
     sleep 3
     exit
     else
-    last_page = (total.to_f / per_page.to_f).ceil
+    last_page = (total.to_f / per_page.to_f).ceil # used to get the total number of pages on the site
     end
   while page <= last_page
     if criteria.eql? 'Y'
+      #when search criteria is selected
       pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓
 &query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&591=#{data[2]}&577=&578=&579=&commit=Search&page=#{page}"
     else
+      # when search criteria is not selected
       pagination_url="https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"
     end
+
     pagination_search_page = a.get(pagination_url)
     pagination_parsed_job_list = Nokogiri::HTML(pagination_search_page.body)
     pagination_job_list = pagination_parsed_job_list.css('div.job-item.job-item-posting')
     pagination_job_list.css('div.job-item.job-item-posting').each do |job|
+      # Filling out array listings with individualized job info
       job_layering = 'div.col-md-8.col-xs-12 div.col-md-2.col-xs-12.job-title.job-title-text-wrap.col-md-push-0'
+      # Summary information insertion
       info = {
         title: job.css('h3').text.strip!,
         work_title: job.css(job_layering)[0].text.strip!,
@@ -124,7 +130,7 @@ def get_job_listings
       }
       jobs << info
     end
-    page += 1
+    page += 1 # moves to next page when listings of current page are included
   end
   jobs
 end
