@@ -250,33 +250,53 @@ Description: Enter 2 to see posts from the last week and enter keyword "research
 Expected Out: "Available jobs: [# matches the osu job board]" + listings
 Actual Out: "Available jobs: 12" + the 12 listings (matches website)
 
+Author:Reema Gupta
+Date: 6/17/2020
+Test #34 - Do not choose search criteria
+Description: Answer 'N' when asked to choose search criteria
+Expected Out: "Available jobs: [# listed on website]" + # of listings
+Actual Out: "Available jobs: 43" + 43 job listings (matches website)
+
+Author: Reema Gupta
+Date: 6/17/2020
+Test #35 - Filter by choosing all three criteria
+Description:After choosing search criteria choose a keyword (assistant) + enter duration (3 + Answer 'Y' to narrowing results to Columbus only
+Expected Out: User is informed that any arbitrary number of jobs are available + # of listings
+Actual Out: "Available jobs: 11" + 11 job listing (matches website)
+
+Author:Reema Gupta
+Date:6/17/2020
+Test #36 - Filter by choosing only the time period criteria
+Description: After answering 'Y' for search criteria, filter by time period (last month)
+Expected Out: User is informed that any arbitrary number of jobs are available + # of listings
+Actual Out: "Available jobs: 31" + 31 job listing (matches website)
 
 ###TESTING_STUDENT_JOB_SCRAPE / TESTING_STUDENT_JOB_PRINT_FUNCTION###
 
 Author: Duytan Tran
 Date: 6/15/2020
-Test #34: 	Unrealistic filters are entered
+Test #37: 	Unrealistic filters are entered
 Description: 	After selecting student job as the desired scrape, enter unrealistic filters, use print function
 Expected Out:	User is informed that the number of available jobs is 0
 Actual Out:     "Available student jobs: 0" is displayed
 
 Author: Duytan Tran
 Date: 6/15/2020
-Test #35: 	Single listing specific filters are entered
+Test #38: 	Single listing specific filters are entered
 Description: 	After selecting student job as the desired scrape, enter very specific filter, use print function
 Expected Out:	User is informed that the number of available jobs is 1 and is shown that job's information
 Actual Out: 	"Available student jobs: 1" is displayed and information concerning a barista job is displayed
 
 Author: Duytan Tran
 Date: 6/15/2020
-Test #36: 	Vague filter is entered
+Test #39: 	Vague filter is entered
 Description: 	After selecting student job as the desired scrape, enter vague key word, use print function
 Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown that jobs with a commonality
 Actual Out: 	"Available student jobs: 6" is displayed and information concerning a jobs with keyword cook are shown
 
 Author: Duytan Tran
 Date: 6/15/2020
-Test #37: 	No filter is entered
+Test #40: 	No filter is entered
 Description: 	After selecting student job as the desired scrape, enter no filters, use print function
 Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown all available jobs on the student
 		job board
@@ -286,28 +306,42 @@ Actual Out: 	"Available student jobs: 26" is displayed and information for each 
 
 Author: Caroline Wheeler
 Date: 6/17/2020
-Test #38 - nothing in favorites
+Test #41 - nothing in favorites
 Description: Run the scrape for student job board, run pick favorites and select nothing & print favorites
 Expected Out: "************************* FAVORITES *************************"
 Actual Out: "************************* FAVORITES *************************"
 
 Author: Caroline Wheeler
 Date: 6/17/2020
-Test #39 - Add first job listing to favorites
+Test #42 - Add first job listing to favorites
 Description: Add the first job listing to favorites
 Expected Out: Favorites header and the first job listing
 Actual Out: Favorites header and the first job listing
 
 Author: Caroline Wheeler
 Date: 6/17/2020
-Test #39 - Add last job listing to favorites
+Test #43 - Add last job listing to favorites
 Description: W/O clearing favorites add the last job listing and print favorites
 Expected Out: Favorites header and the first job listing and the last job listing appended
 Actual Out: Favorites header and the first job listing and the last job listing appended
 
 Author: Caroline Wheeler
 Date: 6/17/2020
-Test #40 - select multiple favorites at once
+Test #44 - select multiple favorites at once
 Description: Add the first and last job listing to favorites at the same time
 Expected Out: Favorites header and the first job listing and the last job listing appended
 Actual Out: Favorites header and the first job listing and the last job listing appended
+
+###TESTING_EMAIL###
+
+Author: Reema Gupta
+Date: 6/17/2020
+Test # 45: valid file(.txt) and a valid email id is entered when prompted
+Expected Out: An email is send to the entered email id, the text file is attached in the email
+Actual Out: An email is send to the entered email id, the text file is attached in the email
+
+Author: Reema Gupta
+Date: 6/17/2020
+Test #46: user press enter when asked for name of file and then a valid email id is entered when prompted
+Expected Out: An email is send to the entered email id, a file without any name is attached in the email
+Actual Out: An email is send to the entered email id, a file without any name is attached in the email
