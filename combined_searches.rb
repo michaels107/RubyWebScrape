@@ -3,7 +3,6 @@
 # Created 6/14/2020 by Duytan Tran
 require_relative 'student_job_search'
 require_relative 'job'
-require_relative 'favorites'
 require 'mail'
 
 # Store the results of two OSU job scrapings under a single umbrella where various functions may be performed
@@ -135,5 +134,5 @@ def pick_favorites
   end
   return if fav.empty?
 
-  print_to_file('favorites.txt')
+  print_to_file('favorites')
 end

@@ -5,7 +5,7 @@ require_relative 'combined_searches'
 
 # Created 6/15/2020 by Sean Michaels
 # Edited 6/16/2020  by Reema Gupta: Included the code to send the job text file to an email
-# Edited 6/16/2020 by Caroline Wheeler: added call to pick_favorites
+# Edited 6/16/2020 by Caroline Wheeler: added calls to pick_favorites
 # Method to keep prompting the user to either print or compare jobs in their chosen scrape.
 def scraping(jobs)
   check = true
@@ -13,6 +13,7 @@ def scraping(jobs)
     puts 'Enter \'1\' if you want to print out jobs.'
     puts 'Enter \'2\' if you want to compare jobs.'
     puts 'Enter \'3\' if you want to print jobs to a file.'
+    puts 'Enter \'4\' if you want to print your favorites.'
     puts 'Enter \'q\' if you want to quit.'
     print 'Enter choice: '
     choice = gets.chomp
@@ -34,6 +35,10 @@ def scraping(jobs)
         id=gets.chomp
         jobs.email id,file_name
       end
+    elsif choice.eql?'4'
+      f = File.open('favorites')
+      puts f.read
+      f.close
     end
   end
 end
