@@ -13,7 +13,8 @@ def scraping(jobs)
     puts 'Enter \'1\' if you want to print out jobs.'
     puts 'Enter \'2\' if you want to compare jobs.'
     puts 'Enter \'3\' if you want to print jobs to a file.'
-    puts 'Enter \'4\' if you want to print your favorites.'
+    puts 'Enter \'4\' if you want to pick your favorites.'
+    puts 'Enter \'5\' if you want to print your favorites'
     puts 'Enter \'q\' if you want to quit.'
     print 'Enter choice: '
     choice = gets.chomp
@@ -21,7 +22,6 @@ def scraping(jobs)
       check = false
     elsif choice.eql? '1'
       jobs.print_listings
-      jobs.pick_favorites
     elsif choice.eql? '2'
       jobs.compare_listings
     elsif choice.eql?'3'
@@ -36,6 +36,8 @@ def scraping(jobs)
         jobs.email id,file_name
       end
     elsif choice.eql?'4'
+      jobs.pick_favorites
+    elsif choice.eql?'5'
       f = File.open('favorites')
       puts f.read
       f.close

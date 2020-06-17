@@ -124,6 +124,8 @@ class CombinedSearches
     fav = []
     puts 'You have the option to favorite job listings.'
     puts 'They will be saved and stored separately.'
+    print_listings
+    puts
     puts 'Enter the numbers of the job listings you would like to favorite (press enter after each num): '
     loop do
         input = gets.chomp
