@@ -61,9 +61,9 @@ end
 # Edited  6/17/2020 by Reema Gupta: included a variable to store user input for search criteria
 # Edited  6/17/2020 by Reema Gupta: Added another pagination url for condition when search criteria is not required
 # Edited  6/17/2020 by Reema Gupta: removed parameter from osu form
-# Edited 6/17/2020 by Sean Michaels: Debugged and fixed the url so it correctly filters
+# Edited  6/17/2020 by Sean Michaels: Debugged and fixed the url so it correctly filters
+# Edited  6/17/2020 by Reema Gupta: Added the condition to exit program when there are 0 listings
 =begin
-
  Scrapes the  job board search at https://www.jobsatosu.com/postings/search
  for available listings, outputting them to the console in a quick summarized manner with
  links to each specific listing for view details.
@@ -91,7 +91,15 @@ def get_job_listings
   job_list = parsed_job_list.css('div.job-item.job-item-posting')
   per_page = job_list.count
   total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i
-  last_page = (total.to_f / per_page.to_f).ceil
+  if(total==0)
+    puts "0 listings"
+    sleep 3
+    puts "Quitting"
+    sleep 3
+    exit
+    else
+    last_page = (total.to_f / per_page.to_f).ceil
+    end
   while page <= last_page
     if criteria.eql? 'Y'
       pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓
