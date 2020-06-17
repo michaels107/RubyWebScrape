@@ -4,6 +4,7 @@
 # Edited 6/12/2020 by Sean Michaels
 # Edited 6/13/2020 by Duytan Tran
 # Edited 6/14/2020 by Duytan Tran
+# Edited 6/17/2020 by Duytan Tran
 # Scrapes the OSU student job board search at https://sfa.osu.edu/jobs/job-board
 # for available listings, outputting them to the console in a quick summarized manner with
 # links to each specific listing for additional details.
@@ -54,6 +55,7 @@ end
 # Edited 6/12/2020 by Sean Michaels: Added method to ask user for data for their search
 # Edited 6/13/2020 by Duytan Tran: Added additional scraping for pay, duration, and hours
 # Edited 6/15/2020 by Sean Michaels: Refactored the checkboxes part with an shift
+# Edited 6/17/2020 by Duytan Tran: Made undefined hash keys value 'N/A'
 # Scrapes Student Job listings and returns them in an array of hashes
 def get_student_job_listings
   # Processing user filter choices
@@ -78,10 +80,11 @@ def get_student_job_listings
   jobs = []
   parsed_job_list.css('ol li').each do |job|
     # Summary information insertion
-    info = { title: job.css('h4')[0].text,
-             employer: job.css('h4')[1].text,
-             desc: job.css('p')[0].text,
-             link: 'https://sfa.osu.edu/jobs/' + job.css('a')[0]['href'] }
+    info = Hash.new('N/A')
+    info[:title] = job.css('h4')[0].text
+    info[:employer] = job.css('h4')[1].text
+    info[:desc] = job.css('p')[0].text
+    info[:link] = 'https://sfa.osu.edu/jobs/' + job.css('a')[0]['href']
     get_specific_listing_info a, info
     jobs << info
   end
