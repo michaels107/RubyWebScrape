@@ -22,3 +22,10 @@
 3. Install releveant gems used in our program via terminal command: bundle install
 4. Fulfill the bookkeeping required by rbenv via terminal command: rbenv rehash
 5. Run the program using the right gems via terminal command: bundle exec ruby scrape.rb
+
+### Gmail Login Credentials
+* Email id: quaranteamcse3901@gmail.com
+* Password: Quaranteam3901
+
+1. Make sure that access to less secure apps is turned on. For that, after logging in to the account go to following link and turn on https://www.google.com/settings/security/lesssecureapps
+
