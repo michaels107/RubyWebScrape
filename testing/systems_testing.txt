@@ -1,37 +1,6 @@
 Created 6/15/2020 by Duytan Tran
 Systems testing for the OSU/Student job scraping program in scrape.rb
 
-###TESTING_STUDENT_JOB_SCRAPE / TESTING_STUDENT_JOB_PRINT_FUNCTION###
-
-Author: Duytan Tran
-Date: 6/15/2020
-Test #1: 	Unrealistic filters are entered
-Description: 	After selecting student job as the desired scrape, enter unrealistic filters, use print function
-Expected Out:	User is informed that the number of available jobs is 0
-Actual Out: 	"Available student jobs: 0" is displayed
-
-Author: Duytan Tran
-Date: 6/15/2020
-Test #2: 	Single listing specific filters are entered
-Description: 	After selecting student job as the desired scrape, enter very specific filter, use print function
-Expected Out:	User is informed that the number of available jobs is 1 and is shown that job's information
-Actual Out: 	"Available student jobs: 1" is displayed and information concerning a barista job is displayed
-
-Author: Duytan Tran
-Date: 6/15/2020
-Test #3: 	Vague filter is entered
-Description: 	After selecting student job as the desired scrape, enter vague key word, use print function
-Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown that jobs with a commonality
-Actual Out: 	"Available student jobs: 6" is displayed and information concerning a jobs with keyword cook are shown
-
-Author: Duytan Tran
-Date: 6/15/2020
-Test #4: 	No filter is entered
-Description: 	After selecting student job as the desired scrape, enter no filters, use print function
-Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown all available jobs on the student
-		job board
-Actual Out: 	"Available student jobs: 26" is displayed and information for each listing is displayed
-
 ###TESTING_COMPARE_LISTINGS###
 
 Author: Duytan Tran
@@ -170,6 +139,8 @@ Description: 	OSU job listings is selected and no filters are entered. compariso
 Expected Out:	user is shown a side by side comparison of the two listings
 Actual Out: 	user is shown a side by side comparison of the two listings
 
+###TESTING_SELECTION_IO###
+
 Author: Sean Michaels
 Date: 6/16/2020
 Test #19: Initial start of the scrape
@@ -218,6 +189,8 @@ Test #25: scraping method in scrape.rb
 Description:    Prompts user to enter a choice for what they want for the scrape, user chooses 'q'
 Expected Out:	Ends scraping method and ends program
 Actual Out: 	Ends scraping method and ends program
+
+###TESTING_PRINT_TO_FILE_METHOD###
 
 Author: Sean Michaels
 Date: 6/16/2020
@@ -276,5 +249,36 @@ Test #33 - filter by postings within the last week
 Description: Enter 2 to see posts from the last week
 Expected Out: "Available jobs: [# matches the osu job board]"
 Actual Out:
+
+###TESTING_STUDENT_JOB_SCRAPE / TESTING_STUDENT_JOB_PRINT_FUNCTION###
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #34: 	Unrealistic filters are entered
+Description: 	After selecting student job as the desired scrape, enter unrealistic filters, use print function
+Expected Out:	User is informed that the number of available jobs is 0
+Actual Out: 	"Available student jobs: 0" is displayed
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #35: 	Single listing specific filters are entered
+Description: 	After selecting student job as the desired scrape, enter very specific filter, use print function
+Expected Out:	User is informed that the number of available jobs is 1 and is shown that job's information
+Actual Out: 	"Available student jobs: 1" is displayed and information concerning a barista job is displayed
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #36: 	Vague filter is entered
+Description: 	After selecting student job as the desired scrape, enter vague key word, use print function
+Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown that jobs with a commonality
+Actual Out: 	"Available student jobs: 6" is displayed and information concerning a jobs with keyword cook are shown
+
+Author: Duytan Tran
+Date: 6/15/2020
+Test #37: 	No filter is entered
+Description: 	After selecting student job as the desired scrape, enter no filters, use print function
+Expected Out:	User is informed that the number of available jobs is any arbitrary number and is shown all available jobs on the student
+		job board
+Actual Out: 	"Available student jobs: 26" is displayed and information for each listing is displayed
 
 ###TESTING_ADD_TO_FAVORITES / TESTING_PRINT_FAVORITES###

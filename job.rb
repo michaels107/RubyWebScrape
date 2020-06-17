@@ -37,7 +37,7 @@ end
 # Created 6/11/20 by Caroline Wheeler
 # Allows user to fill our search criteria for osu job search
 # Returns the search form with/without search criteria filled out.
-def osu_form(form)
+def osu_form
   data = []
   # get keywords
   data.push(keywords)
@@ -57,9 +57,15 @@ end
 # Edited  6/15/2020 by Caroline Wheeler: Added call to osu_form and code necessary to implement search criteria
 # Edited  6/15/2020 by Caroline Wheeler: Added single line comments
 # Edited  6/16/2020 by Reema Gupta: changed the pagination_url so as to include search criteria
-# Scrapes the  job board search at https://www.jobsatosu.com/postings/search
-#  for available listings, outputting them to the console in a quick summarized manner with
-# links to each specific listing for view details.
+# Edited  6/17/2020 by Reema Gupta: changed .round to.ceil in last page so as to always round up
+# Edited  6/17/2020 by Reema Gupta: included a variable to store user input for search criteria
+# Edited  6/17/2020 by Reema Gupta: Added another pagination url for condition when search criteria is not required
+# Edited  6/17/2020 by Reema Gupta: removed parameter from osu form
+=begin
+ Scrapes the  job board search at https://www.jobsatosu.com/postings/search
+ for available listings, outputting them to the console in a quick summarized manner with
+ links to each specific listing for view details.
+=end
 def get_job_listings
   url = 'https://www.jobsatosu.com/postings/search'
   puts 'Scrap ' + url + '...'
@@ -68,8 +74,9 @@ def get_job_listings
   search_form = search_page.forms.first
   # this section authored by Caroline Wheeler
   puts 'Would you like to enter search criteria? [Y/N]'
-  if gets.chomp.eql?('Y')
-    data = osu_form(search_form) # call to osu_form will return an array containing search criteria
+  criteria=gets.chomp
+  if criteria.eql?('Y')
+    data = osu_form # call to osu_form will return an array containing search criteria
     search_form.query = data[0] # enters keywords
     search_form.query_v0_posted_at_date = data[1] # enters preferred date of posting
     search_form.field_with(:name => '591[]').option(:value => data[2]).click # enters location preference
@@ -83,9 +90,13 @@ def get_job_listings
   job_list = parsed_job_list.css('div.job-item.job-item-posting')
   per_page = job_list.count
   total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i
-  last_page = (total.to_f / per_page.to_f).round
+  last_page = (total.to_f / per_page.to_f).ceil
   while page <= last_page
-    pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&577=&578=&579"
+    if(criteria.eql? 'Y')
+      pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&577=&578=&579"
+    else
+      pagination_url="https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"
+    end
     pagination_search_page = a.get(pagination_url)
     pagination_parsed_job_list = Nokogiri::HTML(pagination_search_page.body)
     pagination_job_list = pagination_parsed_job_list.css('div.job-item.job-item-posting')
