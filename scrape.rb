@@ -5,6 +5,7 @@ require_relative 'combined_searches'
 
 # Created 6/15/2020 by Sean Michaels
 # Edited 6/16/2020  by Reema Gupta: Included the code to send the job text file to an email
+# Edited 6/16/2020 by Caroline Wheeler: added call to pick_favorites
 # Method to keep prompting the user to either print or compare jobs in their chosen scrape.
 def scraping(jobs)
   check = true
@@ -19,6 +20,7 @@ def scraping(jobs)
       check = false
     elsif choice.eql? '1'
       jobs.print_listings
+      jobs.pick_favorites
     elsif choice.eql? '2'
       jobs.compare_listings
     elsif choice.eql?'3'

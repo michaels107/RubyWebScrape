@@ -3,7 +3,9 @@
 # Created 6/14/2020 by Duytan Tran
 require_relative 'student_job_search'
 require_relative 'job'
+require_relative 'favorites'
 require 'mail'
+
 # Store the results of two OSU job scrapings under a single umbrella where various functions may be performed
 class CombinedSearches
   # Created 6/14/2020 by Duytan Tran
@@ -116,4 +118,22 @@ class CombinedSearches
     mail.deliver
 
   end
+end
+
+# Created 6/17/2020 by Caroline Wheeler
+# Allows user to select favorite job listings and write them to favorites file
+def pick_favorites
+  fav = []
+  puts 'You have the option to favorite job listings.'
+  puts 'They will be saved and stored separately.'
+  puts 'Enter the numbers of the job listings you would like to favorite (press enter after each num): '
+  loop do
+    input = gets.chomp
+    break if input.empty?
+
+    fav << input
+  end
+  return if fav.empty?
+
+  print_to_file('favorites.txt')
 end

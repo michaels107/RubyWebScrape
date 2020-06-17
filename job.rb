@@ -8,7 +8,7 @@ require 'mechanize'
 def location
   puts 'Would you like to search only in Columbus? [Y/N]'
   x = gets.chomp
-  x.eql?('Y')? ('1'):('any')
+  x.eql?('Y') ? '1' : 'any'
 end
 
 # Created 6/11/20 by Caroline Wheeler
@@ -71,11 +71,11 @@ def get_job_listings
   if gets.chomp.eql?('Y')
     data = osu_form(search_form) # call to osu_form will return an array containing search criteria
     search_form.query = data[0] # enters keywords
-    search_form.query_v0_posted_at_date = data[1] #enters prefered date of posting
+    search_form.query_v0_posted_at_date = data[1] # enters preferred date of posting
     search_form.field_with(:name => '591[]').option(:value => data[2]).click # enters location preference
   end
   puts search_form.inspect
-  unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'search-extra'))
+  unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'Search'))
   # end section by Caroline Wheeler
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
   jobs = []
@@ -128,9 +128,10 @@ def print_job_listings(jobs)
 end
 
 # Created by 6/15/2020 by Sean Michaels
+# Edited 6/17/2020 by Caroline Wheeler - change 'w+'' to 'a+'' so appends to file
 # Method to print to a file you created
 def print_file jobs, file_name
-  File.open(file_name, 'w+') do |f|
+  File.open(file_name, 'a+') do |f|
     jobs.each_with_index do |job, i|
     f.write"Job listing #{i + 1}\n"
     f.write"Title: #{job[:title]}\n"
@@ -144,7 +145,3 @@ def print_file jobs, file_name
     end
   end
 end
-
-
-
-
