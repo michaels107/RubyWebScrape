@@ -108,8 +108,8 @@ def print_student_job_listings jobs
 end
 
 # Created by 6/15/2020 by Sean Michaels
-# Edited 6/17/2020 by Caroline Wheeler - fixed formatting
-# Edited 6/17/2020 by Caroline Wheeler - change 'w+'' to 'a+'' so appends to file
+# Edited 6/17/2020 by Caroline Wheeler : fixed formatting
+# Edited 6/17/2020 by Caroline Wheeler : change 'w+'' to 'a+'' so appends to file
 # Method to print to a file you created
 def print_file jobs, file_name
   File.open(file_name, 'a+') do |f|
