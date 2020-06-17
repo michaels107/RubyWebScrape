@@ -220,35 +220,36 @@ Date: 6/16/2020
 Test #29 - No filters
 Description: Submit search with no filters
 Expected Out: "Available jobs: [# listed on website w/o criteria - changes daily]" + # of listings
-Actual Out:
+Actual Out: "Available jobs: 43" + 43 job listings (matches website)
 
 Author: Caroline Wheeler
 Date: 6/16/2020
 Test #30 - Bad filters used
 Description: Filters expected to return no jobs used
-Expected Out: "Available jobs: 0"
-Actual Out:
+Expected Out: "Available jobs: 0" + quit program
+Actual Out: "Available jobs: 0" + "Quitting" + program ends
 
 Author: Caroline Wheeler
 Date: 6/16/2020
 Test #31 - One keyword
 Description: The keyword "engineer" is entered as a filter
 Expected Out: "Available jobs: 6" + listings
-Actual Out:
+Actual Out: "Available jobs: 6" + the 6 listings (matches website)
 
 Author: Caroline Wheeler
 Date: 6/16/2020
 Test #32 - filter by Columbus only
 Description: Answer 'Y' to narrowing results to Columbus only
-Expected Out: "Available jobs: 40" + listings
-Actual Out:
+Expected Out: "Available jobs: #" + listings
+Actual Out: "Available jobs: 40" + the 40 listings (matches website)
 
 Author: Caroline Wheeler
 Date: 6/16/2020
-Test #33 - filter by postings within the last week
-Description: Enter 2 to see posts from the last week
-Expected Out: "Available jobs: [# matches the osu job board]"
-Actual Out:
+Test #33 - filter by postings within the last week + keyword
+Description: Enter 2 to see posts from the last week and enter keyword "research"
+Expected Out: "Available jobs: [# matches the osu job board]" + listings
+Actual Out: "Available jobs: 12" + the 12 listings (matches website)
+
 
 ###TESTING_STUDENT_JOB_SCRAPE / TESTING_STUDENT_JOB_PRINT_FUNCTION###
 
@@ -257,7 +258,7 @@ Date: 6/15/2020
 Test #34: 	Unrealistic filters are entered
 Description: 	After selecting student job as the desired scrape, enter unrealistic filters, use print function
 Expected Out:	User is informed that the number of available jobs is 0
-Actual Out: 	"Available student jobs: 0" is displayed
+Actual Out:     "Available student jobs: 0" is displayed
 
 Author: Duytan Tran
 Date: 6/15/2020
