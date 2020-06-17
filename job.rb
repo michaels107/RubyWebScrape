@@ -61,7 +61,9 @@ end
 # Edited  6/17/2020 by Reema Gupta: included a variable to store user input for search criteria
 # Edited  6/17/2020 by Reema Gupta: Added another pagination url for condition when search criteria is not required
 # Edited  6/17/2020 by Reema Gupta: removed parameter from osu form
+# Edited 6/17/2020 by Sean Michaels: Debugged and fixed the url so it correctly filters
 =begin
+
  Scrapes the  job board search at https://www.jobsatosu.com/postings/search
  for available listings, outputting them to the console in a quick summarized manner with
  links to each specific listing for view details.
@@ -92,7 +94,8 @@ def get_job_listings
   last_page = (total.to_f / per_page.to_f).ceil
   while page <= last_page
     if criteria.eql? 'Y'
-      pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&577=&578=&579"
+      pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓
+&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&591=#{data[2]}&577=&578=&579=&commit=Search&page=#{page}"
     else
       pagination_url="https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"
     end
