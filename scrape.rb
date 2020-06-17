@@ -26,7 +26,7 @@ def scraping(jobs)
       jobs.compare_listings
     elsif choice.eql?'3'
       print "Enter file name with .txt extension to create your file:( if you press enter a file without name would be created) "
-      file_name = $stdin.gets
+      file_name = $stdin.gets.chomp
       jobs.print_to_file file_name
       print "Do you want the file to be emailed to you? (Y/N) : "
       s=gets.chomp

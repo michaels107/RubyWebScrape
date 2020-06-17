@@ -157,7 +157,7 @@ end
 # Created by 6/15/2020 by Sean Michaels
 # Edited 6/17/2020 by Caroline Wheeler - change 'w+'' to 'a+'' so appends to file
 # Method to print to a file you created
-def print_file jobs, file_name
+def print_file_job jobs, file_name
   File.open(file_name, 'a+') do |f|
     jobs.each_with_index do |job, i|
     f.write"Job listing #{i + 1}\n"

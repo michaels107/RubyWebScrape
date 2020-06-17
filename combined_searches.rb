@@ -30,11 +30,14 @@ class CombinedSearches
   end
 
   # Created 6/15/2020 by Sean Michaels
-  # Edited 6/16/2020 by Sean Michaels : Removed the check of scrape as the method is overloaded
   # Edited 6/16/2020 by Reema Gupta : Shifted the input statements to scrape.rb
   # Prints the job listings with the appropriate implementation to a file
   def print_to_file  file_name
-    print_file @job_listings, file_name
+    if @osu_employment
+      print_file_job @job_listings, file_name
+    else
+      print_file_student @job_listings, file_name
+    end
   end
 
   # Created 6/14/2020 by Duytan Tran
