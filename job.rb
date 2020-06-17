@@ -81,7 +81,6 @@ def get_job_listings
     search_form.query_v0_posted_at_date = data[1] # enters preferred date of posting
     search_form.field_with(:name => '591[]').option(:value => data[2]).click # enters location preference
   end
-  puts search_form.inspect
   unparsed_job_list = a.submit(search_form, search_form.button_with(:value => 'Search'))
   # end section by Caroline Wheeler
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
@@ -92,7 +91,7 @@ def get_job_listings
   total = parsed_job_list.css('span.smaller.muted').text.split('(')[1].split(')')[0].to_i
   last_page = (total.to_f / per_page.to_f).ceil
   while page <= last_page
-    if(criteria.eql? 'Y')
+    if criteria.eql? 'Y'
       pagination_url = "https://www.jobsatosu.com/postings/search?utf8=✓&query=#{data[0]}&query_v0_posted_at_date=#{data[1]}&577=&578=&579"
     else
       pagination_url="https://www.jobsatosu.com/postings/search?commit=Search&page=#{page}"

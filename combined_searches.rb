@@ -89,8 +89,8 @@ class CombinedSearches
     end
   end
 
-# Created 06/16/2020 by Reema Gupta
-# Method to send an email with an attached text file
+  # Created 06/16/2020 by Reema Gupta
+  # Method to send an email with an attached text file
   def email(receiver_id, file_name)
     smtp_server = "smtp.gmail.com"
     email_id = "quaranteamcse3901@gmail.com"
@@ -117,22 +117,22 @@ class CombinedSearches
     mail.deliver
 
   end
-end
 
-# Created 6/17/2020 by Caroline Wheeler
-# Allows user to select favorite job listings and write them to favorites file
-def pick_favorites
-  fav = []
-  puts 'You have the option to favorite job listings.'
-  puts 'They will be saved and stored separately.'
-  puts 'Enter the numbers of the job listings you would like to favorite (press enter after each num): '
-  loop do
-    input = gets.chomp
-    break if input.empty?
+  # Created 6/17/2020 by Caroline Wheeler
+  # Allows user to select favorite job listings and write them to favorites file
+  def pick_favorites
+    fav = []
+    puts 'You have the option to favorite job listings.'
+    puts 'They will be saved and stored separately.'
+    puts 'Enter the numbers of the job listings you would like to favorite (press enter after each num): '
+    loop do
+        input = gets.chomp
+        break if input.empty?
 
-    fav << input
-  end
-  return if fav.empty?
+        fav << input
+      end
+    return if fav.empty?
 
-  print_to_file('favorites')
+    print_to_file('favorites')
+    end
 end
