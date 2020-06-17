@@ -105,9 +105,11 @@ def print_student_job_listings jobs
 end
 
 # Created by 6/15/2020 by Sean Michaels
+# Edited6/17/2020 by Caroline Wheeler - fixed formatting
 # Method to print to a file you created
 def print_file jobs, file_name
-  File.open(file_name, 'w+') {|f| jobs.each_with_index { |job, i|
+  File.open(file_name, 'w+') do |f|
+    jobs.each_with_index do |job, i|
     f.write"Job listing #{i + 1}\n"
     f.write"Title: #{job[:title]}\n"
     f.write"Employer: #{job[:employer]}\n"
@@ -116,6 +118,6 @@ def print_file jobs, file_name
     f.write"Hours: #{job[:hours]}\n"
     f.write"Description #{job[:desc]}\n"
     f.write"Additional information #{job[:link]}\n\n"
-   }
-  }
+    end
+  end
 end
