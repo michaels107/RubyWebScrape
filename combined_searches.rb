@@ -92,6 +92,7 @@ class CombinedSearches
   # Created 06/16/2020 by Reema Gupta
   # Method to send an email with an attached text file
   def email(receiver_id, file_name)
+    # server and user details
     smtp_server = "smtp.gmail.com"
     email_id = "quaranteamcse3901@gmail.com"
     password = "Quaranteam3901"
@@ -103,7 +104,7 @@ class CombinedSearches
       to receiver_id
       subject 'Job Search Listings'
       body "Please find the attached text file"
-      add_file "#{File.realpath(file_name)}"
+      add_file "#{File.realpath(file_name)}" # path to the file
 
     end
     options = {:address => smtp_server,
@@ -113,8 +114,8 @@ class CombinedSearches
                :password => password,
                :authentication => 'plain',
                :enable_starttls_auto => true}
-    mail.delivery_method :smtp, options
-    mail.deliver
+    mail.delivery_method :smtp, options #sending via smtp
+    mail.deliver # sends mail
 
   end
 
