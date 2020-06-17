@@ -239,3 +239,42 @@ Test #28: print_file method in the job.rb
 Description:    Creates a file and writes jobs to it using the info from the student job board.
 Expected Out:	Creates a file using the file_name and the jobs it wanted to print to a file
 Actual Out: 	Creates a file using the file_name and the jobs it wanted to print to a file
+
+###TESTING_OSU_JOB_BOARD_SCRAPE / TESTING_OSU_JOB_BOARD_PRINT_FUNCTION###
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #29 - No filters
+Description: Submit search with no filters
+Expected Out: "Available jobs: [# listed on website w/o criteria - changes daily]" + # of listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #30 - Bad filters used
+Description: Filters expected to return no jobs used
+Expected Out: "Available jobs: 0"
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #31 - One keyword
+Description: The keyword "engineer" is entered as a filter
+Expected Out: "Available jobs: 6" + listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #32 - filter by Columbus only
+Description: Answer 'Y' to narrowing results to Columbus only
+Expected Out: "Available jobs: 40" + listings
+Actual Out:
+
+Author: Caroline Wheeler
+Date: 6/16/2020
+Test #33 - filter by postings within the last week
+Description: Enter 2 to see posts from the last week
+Expected Out: "Available jobs: [# matches the osu job board]"
+Actual Out:
+
+###TESTING_ADD_TO_FAVORITES / TESTING_PRINT_FAVORITES###
