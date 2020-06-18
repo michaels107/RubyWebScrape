@@ -18,6 +18,7 @@ def scraping(jobs)
     puts 'Enter \'q\' if you want to quit.'
     print 'Enter choice: '
     choice = gets.chomp
+    puts ''
     if choice.eql? 'q'
       check = false
     elsif choice.eql? '1'

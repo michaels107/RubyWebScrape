@@ -65,12 +65,14 @@ def get_student_job_listings
   search_page = a.get(url)
   search_form = search_page.forms.last
   data = filter
-  i = 1
+  i = 0
   search_form.search = data[0]
   data.shift # Unshifitng to get rid of keywords index
+
   search_form.checkboxes.map do |box|
     box.click if data[i]
     i += 1
+
   end
   unparsed_job_list = a.submit(search_form, search_form.buttons.first)
   parsed_job_list = Nokogiri::HTML(unparsed_job_list.body)
