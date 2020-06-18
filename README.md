@@ -30,17 +30,17 @@
 
     3a. If you selected '1', it will print out all the jobs into the console with their data.
   
-    3b. If you selected '2', it will ask you to select two jobs in which it will then print to the console the two jobs side by side for you compare.
+    3b. If you selected '2', it will ask you to select two jobs in which it will then print to the console the two jobs side by side for you to compare.
 
-    3c. If you selected '3', it will ask you to input a file name for it to create and print all the jobs that it had scrape, to that file.
+    3c. If you selected '3', it will ask you to input a file name for it to create and print all the jobs that it had scraped to that file.
 
-    3i. When selectiong option '3', it will ask you to  if you want to send the file as an email. If selecting 'Y' it will then prompt for a email id and will then send you an email with the file. If you select 'N', it will not send an email.
+    3i. When selectiong option '3', it will ask you if you want to send the file as an email. If you select 'Y' it will then prompt for a email address and will send you an email with the file. If you select 'N', it will not send an email.
 
-    3d. If you selected '4', it will ask you to select your favorite jobs and it will write them into the favorites file.
+    3d. If you selected '4', it will ask you to select your favorite jobs and writes them into the favorites file.
 
     3e. If you selected '5', it will then print the jobs in your favorites file to a file.
 
-4. It will then loop with the same options until you decide that you want to quit. When deciding that you want to quit, enter 'q' as the choice and the program will proceed to quit.
+4. It will then loop with the same options until you decide that you want to quit. When deciding that you want to quit, entering 'q' as the choice will quit out of the program.
 
 
 ### Gmail Login Credentials
