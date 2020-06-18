@@ -11,7 +11,7 @@ require_relative 'class/combined_searches'
 # Edited 6/16/2020 by Caroline Wheeler: added calls to pick_favorites
 # Edited 6/18/2020 by Duytan Tran: Changed file pathing of favorites
 # Method to keep prompting the user to either print or compare jobs in their chosen scrape.
-def scraping(jobs)
+def scraping jobs
   check = true
   while check
     puts 'Enter \'1\' if you want to print out jobs.'
