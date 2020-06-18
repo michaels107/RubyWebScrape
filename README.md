@@ -23,6 +23,19 @@
 4. Fulfill the bookkeeping required by rbenv via terminal command: rbenv rehash
 5. Run the program using the right gems via terminal command: bundle exec ruby scrape.rb
 
+### Walkthrough
+1. Once you start the program, you will be prompted asking which job scrape you would like to use.
+2. After selecting your designated scrape, it will ask you to enter some filters on the scrape if you would like.
+3. After doing your filtering of for your scrape, it will then prompt you for some different options you can do from your scrape.
+4a. If you selected '1', it will print out all the jobs into the console with their data.
+4b. If you selected '2', it will ask you to select two jobs in which it will then print to the console the two jobs side by side for you compare.
+4c. If you selected '3', it will ask you to input a file name for it to create and print all the jobs that it had scrape, to that file.
+4i. When selectiong option '3', it will ask you to  if you want to send the file as an email. If selecting 'Y' it will then prompt for a email id and will then send you an email with the file. If you select 'N', it will not send an email.
+4d. If you selected '4', it will ask you to select your favorite jobs and it will write them into the favorites file.
+4e. If you selected '5', it will then print the jobs in your favorites file to a file.
+5. It will then loop with the same options until you decide that you want to quit. When deciding that you want to quit, enter 'q' as the choice and the program will proceed to quit.
+
+
 ### Gmail Login Credentials
 * Email id: quaranteamcse3901@gmail.com
 * Password: Quaranteam3901
