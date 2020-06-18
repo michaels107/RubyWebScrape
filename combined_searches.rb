@@ -144,7 +144,11 @@ class CombinedSearches
 
     # for each favorite selected add job listing info to arr and write to file
     fav_index.each { |i| fav_jobs << @job_listings[i] }
-    print_file(fav_jobs, 'favorites')
+    if @osu_employment
+      print_file_job fav_jobs, 'favorites'
+    else
+      print_file_student fav_jobs, 'favorites'
+    end
   end
 
 end
